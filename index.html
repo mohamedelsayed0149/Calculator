@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+	<link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Inconsolata">
+</head>
+<body>
+	<div class="container">
+		<table border="1px" cellspacing="0">
+			<tr>
+				<td colspan="4" id="inputlabel">0</td>
+			</tr>
+			<tr>
+				<td colspan="3"><button onclick="pushbtn(this);">AC</button></td>
+				<td><button onclick="pushbtn(this);">/</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="pushbtn(this);">7</button></td>
+				<td><button onclick="pushbtn(this);">8</button></td>
+				<td><button onclick="pushbtn(this);">9</button></td>
+				<td><button onclick="pushbtn(this);">*</button></td>
+				
+			</tr>
+			<tr>
+				<td><button onclick="pushbtn(this);">4</button></td>
+				<td><button onclick="pushbtn(this);">5</button></td>
+				<td><button onclick="pushbtn(this);">6</button></td>
+				<td><button onclick="pushbtn(this);">-</button></td>
+				
+			</tr>
+			<tr>
+				<td><button onclick="pushbtn(this);">1</button></td>
+				<td><button onclick="pushbtn(this);">2</button></td>
+				<td><button onclick="pushbtn(this);">3</button></td>
+				<td><button onclick="pushbtn(this);">+</button></td>
+				
+			</tr>
+			<tr>
+				<td colspan="2"><button onclick="pushbtn(this);">0</button></td>
+				<td><button onclick="pushbtn(this);">.</button></td>
+				<td><button onclick="pushbtn(this);">=</button></td>
+				
+			</tr>
+
+		</table>
+	</div>
+
+	<script type="text/javascript">
+		var inputlabel = document.getElementById('inputlabel');
+
+		function pushbtn(obj) {
+			var pushed = obj.innerHTML;
+			if (pushed == '=') {
+				//calculate
+				inputlabel.innerHTML= eval(inputlabel.innerHTML);
+			
+			} else if (pushed=='AC'){
+				//All clear
+				inputlabel.innerHTML='0';
+			} else {
+				if (inputlabel.innerHTML=='0') {
+					inputlabel.innerHTML=pushed;
+				} else{
+					inputlabel.innerHTML+=pushed;
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>
